@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Pastel de Cumpleaños</title>
+  <link rel="icon" href="Imagenes/PastelIcono.ico" type="image/x-icon">
+  <link rel="stylesheet" href="PaginasDesisiones/PastelEstilo.css"/>
+</head>
+<body>
+
+  
+  <div class="cake-wrapper">
+    <div class="cake-stage" id="cakeStage">
+      <img src="Imagenes/PastelSinFondo2.png" alt="Pastel de cumpleaños"/>
+      <svg class="candles-svg" id="cSvg" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <div id="personaje-final"></div>
+  </div>
+
+  <div class="ui-overlay">
+    <h1>¡Pide un deseo! 🎉🎂</h1>
+    <p class="instructions">Haz clic sobre cada llama para apagarla. Cuando apagues todas las velas, aparecerá un botón para continuar.</p>
+  </div>
+
+  <button id="next-btn" onclick="window.location.href='Pastel2.html'">
+    Continuar
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </button>
+
+  <script src="prendas.js"></script>
+  <script src="PaginasDesisiones/Pastel.js"></script>
+  <script src="PaginasDesisiones/Velas.js"></script>
+</body>
+</html>

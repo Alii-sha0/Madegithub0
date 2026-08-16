@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Armario</title>
+<link rel="icon" href= "Imagenes/PastelIcono.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Vestir.css">
+</head>
+<body>
+
+  <div id="closet-view">
+    <div class="navbar">
+      <h1 class="brand">🧵 El Armario <span>de Made</span></h1>
+      <div class="tabs" id="tabs"></div>
+      <button class="finish-btn" id="finishBtn">Terminar →</button>
+    </div>
+
+    <div class="main">
+      <div class="stage-panel">
+        <h2 class="stage-title">Tu personaje</h2>
+        <div id="stage"></div>
+        <div class="char-controls">
+          <button class="upload-btn" id="charUploadBtn">📷 Subir personaje</button>
+          <button class="clear-link" id="clearOutfit">Vaciar armario</button>
+        </div>
+        <p class="stage-hint">Arrastrá una prenda hasta el personaje para ponérsela (o tocala).<br>Una vez puesta, arrastrala para moverla y usá el punto verde para achicarla o agrandarla.</p>
+        <input type="file" id="charFileInput" accept="image/*" hidden>
+      </div>
+
+      <div class="closet">
+        <h3 class="closet-title" id="closetTitle">Zapatos</h3>
+        <div class="grid" id="grid"></div>
+        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+      </div>
+    </div>
+  </div>
+
+  <div id="next-page">
+    <h2>✨ ¡Todo listo!</h2>
+    <p>Tu personaje quedó guardado</p>
+    <div class="next-stage-wrap" id="nextStage"></div>
+    <button class="back-btn" id="backBtn">← Volver al armario</button>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="prendas.js"></script>
+  <script src="Vestuario.js"></script>
+</body>
+</html>

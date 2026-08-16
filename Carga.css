@@ -1,0 +1,175 @@
+/* Colores de fondo */
+/*
+#f0ecdd --Moonlight
+#8ba3c5 --Sky
+#5e7689 --Blueberry
+#1c2b4b --Midnight blue
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-image: url("Imagenes/Fondos/FondoCarta.jpg");
+    background-size: cover;
+    overflow: hidden;
+}
+
+
+/* Fecha animada */
+#fecha-animada {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 60px;
+    font-family: sans-serif;
+    color: #d3f1ff;
+    font-weight: bold;
+    text-align: center;
+    transition: top 1s ease;
+    z-index: 10;
+    text-shadow: 0 0 8px rgba(37, 95, 143, 0.957)
+}
+
+#carga-container {
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    width: 88%;
+    height: 88%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(218, 213, 192, 0.877); 
+    border:2px solid #8d6c3ad3;
+    border-radius: 20px;
+}
+
+/* Estrellitas */
+.estrella {
+    position: absolute;
+    font-size: 35px;        /* ← de 25px a 35px */
+    pointer-events: none;
+    animation: explotar 1s ease-out forwards;  /* ← de 0.8s a 1s */
+}
+
+@keyframes explotar {
+    0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.2); }
+}
+
+
+/* Imagen sorpresa */
+#imagen-sorpresa {
+    position: absolute;
+    top: 40%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    animation: flotar 2s ease-in-out infinite; 
+}
+
+@keyframes flotar {
+    0%   { transform: translate(-50%, -50%) rotate(-3deg); }
+    50%  { transform: translate(-50%, -56%) rotate(3deg); }
+    100% { transform: translate(-50%, -50%) rotate(-3deg); }
+}
+
+
+/* Barra de carga */
+#contenedor-barra {
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 20px;
+    background-color: #8ba3c5;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+#barra {
+    width: 0%;
+    height: 100%;
+    background-color: #5e7689;
+    border-radius: 10px;
+    transition: width 3s ease;
+}
+
+
+/* Texto y botones — aparecen abajo */
+#zona-botones {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    white-space: nowrap;
+}
+
+
+#zona-botones h2 {
+    font-size: 24px;
+    font-family: Aharoni;
+    color: #5e7689;
+    text-align: center;
+}
+
+
+.btn-respuesta {
+    padding: 12px 40px;
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 10px;
+    border: 2px solid #1c2b4b;
+    background-color: #5e7689 !important;  
+    color: #f0ecdd !important;
+    cursor: pointer;
+    -webkit-appearance: none;  
+    appearance: none;
+}
+
+
+.btn-respuesta:hover {
+    background-color: #2a3f6f !important;  /* ← un poco más claro al pasar el mouse */
+}
+ 
+
+.btn-respuesta:focus {
+    outline: none;
+    background-color: #1c2b4b !important;
+}
+
+
+#fila-botones {
+    display: flex;
+    gap: 20px;
+    position: relative;     /* para poder mover el rechazo */
+}
+
+
+#btn-rechazar {
+    transition: left 0.3s ease, top 0.3s ease;
+    position: relative;
+}

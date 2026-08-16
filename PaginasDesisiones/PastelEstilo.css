@@ -1,0 +1,227 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-image: url('../Imagenes/Fondos/FondoCoqueto.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* ---- Escenario (fondo con la mesa) — este tamaño NUNCA cambia ---- */
+
+.cake-wrapper {
+  position: Relative;
+  width: min(90%, 700px);
+  aspect-ratio: 1 / 1;
+  margin: 1.5rem auto 0;
+  background-image: url('../Imagenes/Escenario1.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 6%;
+  border: 2px solid #3f678e;
+  overflow: hidden;
+}
+
+/* ---- Pastel + velas, agrupados y escalados juntos ----*/
+.cake-stage {
+  --cake-width: 22%;   
+  --cake-bottom: 26%;  
+  --cake-left: 26%;  
+  position: absolute;
+  width: var(--cake-width);
+  aspect-ratio: 1 / 1;
+  left: var(--cake-left);
+  bottom: var(--cake-bottom);
+  transform: translateX(-50%);
+}
+
+.cake-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.candles-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.candle-hit {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+/* ======= DÓNDE APARECE EL PERSONAJE ======= */
+#personaje-final{
+  position:absolute;
+  left:70%;  
+  top: 66%; 
+  width:200px; 
+  aspect-ratio: 3/5;
+  transform:translate(-50%,-50%);
+}
+/* ========================================================== */
+#personaje-final .base{ position:relative; width:100%; height:100%; }
+#personaje-final .base > img{ width:100%; height:100%; object-fit:contain; display:block; }
+#personaje-final .capa{ position:absolute; }
+#personaje-final .capa img{ width:100%; height:100%; display:block; object-fit:contain; }
+
+/* ---- Textos ---- */
+
+.ui-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1rem 0;
+  pointer-events: none;
+}
+
+h1 {
+  font-size: clamp(0.9rem, 6vw, 2.2rem);
+  font-weight: 600;
+  text-align: center;
+  color: #3f678e;
+  margin: 0 auto 1rem;
+  max-width: 80%;
+}
+
+.instructions {
+  font-size: 0.80rem;
+  text-align: justify;
+  line-height: 1.2;
+  color: #e6e6f4;
+  max-width: 400px;
+  background: #3f678e;
+  pointer-events: none;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  margin: 0 auto;
+}
+
+#next-btn {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  padding: 10px 28px;
+  border-radius: 40px;
+  border: 1.5px solid #5b6094;
+  background: rgba(234, 245, 255, 0.808);
+  color: #5b7194;
+  cursor: pointer;
+  pointer-events: all;
+  transition: background 0.18s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+#next-btn:hover { background: #e6e7f4; }
+#next-btn svg { width: 18px; height: 18px; }
+
+/* ---- PAGE 2 ---- */
+h2 {
+  top: 40px;
+  position: relative;
+  font-size: clamp(2.2rem, 6vw, 2.6rem);
+  font-weight: 600;
+  text-align: center;
+  color: #3f678e;
+  margin: 0 auto 1rem;
+  max-width: 80%;
+}
+
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 80vh;
+  align-content: center;
+}
+
+.img-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.img-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  animation: scale-up-vertical-center 0.4s;
+}
+
+.img-card a {
+  width: 100%;
+}
+
+.img-card button {
+  width: 90%;
+  font-size: 0.9rem;
+  padding: 9px 0;
+  border-radius: 40px;
+  border: 1.5px solid #555c95dd;
+  background: rgba(251, 238, 225, 0.842);
+  color: #4d5590;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.18s;
+  animation: scale-up-vertical-center 0.4s;
+}
+
+.scale-up-vertical-center{animation:scale-up-vertical-center 0.4s} 
+@keyframes scale-up-vertical-center{
+  0%{transform:scaleY(.2)}
+  100%{transform:scaleY(1)}
+}
+
+.img-card button:hover { 
+  background: #99b5d5; 
+  color: #f9e6ca;
+  border: 1.5px solid #475091dd;
+}
+
+/* ---- Ajustes finos en celular ---- */
+@media (max-width: 480px) {
+  .ui-overlay {
+    padding: 1.5rem 1.25rem 0;
+  }
+
+  .instructions {
+    max-width: 90%;
+  }
+
+  .cake-wrapper {
+    width: 94%;
+    margin: 1rem auto .4rem;
+  }
+
+  #next-btn {
+    bottom: 1.25rem;
+    font-size: 0.9rem;
+    padding: 9px 22px;
+  }
+}
